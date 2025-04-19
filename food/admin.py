@@ -5,4 +5,11 @@ from food.models import Contact
 admin.site.site_header = "FoodResturantAdmin"
 admin.site.site_title = "FoodResturantAdmin"
 
-admin.site.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ("name", "email","subject", "message", "created_at")
+    list_filter = ("created_at",)
+    search_fields = ("name", "email", "subject")
+    ordering = ("-created_at",)
+
+admin.site.register(Contact, ContactAdmin)
+  
