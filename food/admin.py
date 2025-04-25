@@ -1,5 +1,5 @@
 from django.contrib import admin
-from food.models import Contact
+from food.models import *
 from django.contrib.auth.models import User
 from django.db import models
 # Register your models here.
@@ -28,4 +28,9 @@ class Profile(models.Model):
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'
         ordering = ['-created_at']
+admin.site.register(ItemList)
+admin.site.register(Items)
+admin.site.register(Feedback)
+admin.site.register(Aboutus)
+admin.site.register(Booktable)
   

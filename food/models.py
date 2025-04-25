@@ -16,7 +16,7 @@ class Items(models.Model):
     item_price = models.DecimalField(max_digits=10, decimal_places=2)
     item_description = models.TextField()
     item_image = models.ImageField(upload_to='images/')
-    category = models.ForeignKey(ItemList,  on_delete=models.CASCADE)
+    category = models.ForeignKey(ItemList, related_name="Name", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.item_name
