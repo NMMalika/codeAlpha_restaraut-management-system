@@ -10,6 +10,12 @@ created_at = models.DateTimeField(default=timezone.now)
 # Create your models here.
 class ItemList(models.Model):
     category_name = models.CharField(max_length=100)
+    icon_class = models.CharField(max_length=100, default="fa-solid fa-utensils")
+    category_description = models.TextField(max_length=255, default="Default description")
+    category_image = models.ImageField(upload_to='category_images/', default='default.jpg')
+    
+    def __str__(self):
+        return self.category_name
     
 class Items(models.Model):
     item_name = models.CharField(max_length=100)
@@ -30,8 +36,14 @@ class Feedback(models.Model):
     description = models.TextField()
     rating = models.IntegerField()
     
+    def __str__(self):    
+        return self.user_name
+    
 class Aboutus(models.Model):
     description = models.TextField()
+    
+    def __str__(self):
+        return self.description[:50]
     
 class Contact(models.Model):
     name = models.CharField(max_length=100)

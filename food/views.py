@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from food.models import Contact
+from food.models import Contact, Items, ItemList
 from django.http import HttpResponse
 # Create your views here.
 def index(request):
@@ -24,7 +24,10 @@ def booking(request):
     return render(request, 'booking.html')
 
 def menu(request):
-    return render(request, 'menu.html')
+    items = Items.objects.all()
+    categories = ItemList.objects.all()
+    
+    return render(request, 'menu.html', {'items': items, 'categories': categories})
 
 def feature(request):
     return render(request, 'feature.html')
