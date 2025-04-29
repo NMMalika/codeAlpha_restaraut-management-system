@@ -1,9 +1,12 @@
-from django.shortcuts import render
-from food.models import Contact, Items, ItemList
+from django.shortcuts import render,redirect
+from food.models import Contact, Items, ItemList, Booktable
 from django.http import HttpResponse
+from .forms import Booktableform
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
 def contact(request):
     context = {}
     if request.method == 'POST':
@@ -17,11 +20,11 @@ def contact(request):
         # Here you can add code to send the message via email or save it to the database
         context ["message"]=f"Thank {name} for your message!"
     return render(request, 'contact.html', context)
+
 def about(request):
     return render(request, 'about.html')
 
-def booking(request):
-    return render(request, 'booking.html')
+
 
 def menu(request):
     items = Items.objects.all()
@@ -31,3 +34,10 @@ def menu(request):
 
 def feature(request):
     return render(request, 'feature.html')
+
+def booking(request):
+  forms=Booktableform()
+  if request.method=='POST':
+      print(request.POST)
+  context={"form":forms}
+  return render(request,'booking.html',context)

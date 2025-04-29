@@ -29,6 +29,7 @@ urlpatterns = [
     path("booking/",views.booking, name="booking"),
     path("menu/",views.menu, name="menu"),
     path("feature/",views.feature, name="feature"),
+    
 
 ]
 if settings.DEBUG:
