@@ -31,10 +31,11 @@ class Booktableform (ModelForm):
         'required': 'required'
     }))
     date = forms.DateField(widget=forms.TextInput(attrs={
-        'class': 'form-control datetimepicker-input',
+        'class': 'form-control datetimepicker-input mb-3 mb-sm-0',
         'placeholder': 'Date',
         'data-toggle': 'datetimepicker',
         'data-target': '#date'
+        
     }))
     time = forms.TimeField(widget=forms.TextInput(attrs={
         'class': 'form-control datetimepicker-input',
@@ -48,8 +49,9 @@ class Booktableform (ModelForm):
     message = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'form-control',
         'placeholder': 'Message',
+        'style':"height: 100px",
         'rows': 4 ,
-        'size': '40'
+        'cols': 20
         
     }))
    

@@ -32,5 +32,12 @@ admin.site.register(ItemList)
 admin.site.register(Items)
 admin.site.register(Feedback)
 admin.site.register(Aboutus)
-admin.site.register(Booktable)
+
+class BooktableAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "phone", "message", "created_at")
+    list_filter = ("created_at",)
+    search_fields = ("name", "email", "phone")
+    ordering = ("-created_at",)
+
+admin.site.register(Booktable, BooktableAdmin)
   
