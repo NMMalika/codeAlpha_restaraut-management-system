@@ -43,16 +43,25 @@
                             </div>
                         </div>
                     </div>
+                    {% if submit %}
+                    <div class="alert alert-success" role="alert">
+                     Your message has been sent successfully
+                     </div>
+                    {% else %}
+
+                    
                     <div class="col-lg-5">
                         <div class="booking-form">
                            <form  action="{% url 'booking' %}" method="POST">
                                 {% csrf_token %}
                                 {{form}}
+                                <br> 
                             <div>
                                     <button class="btn custom-btn" type="submit">Book Now</button>
                                 </div>
                             </form>    
                         </div>
+                    {% endif %}
                     </div>
                 </div>
             </div>
