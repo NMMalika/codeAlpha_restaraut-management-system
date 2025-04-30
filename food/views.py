@@ -36,8 +36,12 @@ def feature(request):
     return render(request, 'feature.html')
 
 def booking(request):
+    
   forms=Booktableform()
   if request.method=='POST':
       print(request.POST)
+      forms=Booktableform(request.POST)
+      if forms.is_valid():
+          forms.save()
   context={"form":forms}
   return render(request,'booking.html',context)
