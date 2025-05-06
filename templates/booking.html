@@ -54,7 +54,7 @@
                         <div class="booking-form">
                            <form  action="{% url 'booking' %}" method="POST">
                                 {% csrf_token %}
-                                {{form}}
+                                {{ form.as_p }}
                                 <br> 
                               <div>
                                     <button class="btn custom-btn" type="submit">Book Now</button>

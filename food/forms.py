@@ -2,6 +2,8 @@ from django.forms import ModelForm
 from .models import Booktable
 from django import forms
 
+
+
 class Booktableform (ModelForm):
     class Meta:
         model = Booktable
@@ -30,7 +32,7 @@ class Booktableform (ModelForm):
         'placeholder': 'Mobile',
         'required': 'required'
     }))
-    date = forms.DateField(widget=forms.TextInput(attrs={
+    date = forms.DateField(widget=forms.DateInput(attrs={
         'class': 'form-control datetimepicker-input mb-3 mb-sm-0',
         'placeholder': 'Date',
         'data-toggle': 'datetimepicker',

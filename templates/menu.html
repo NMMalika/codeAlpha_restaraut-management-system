@@ -72,9 +72,13 @@
                                         <img src="/media/{{ item.item_image }}" alt="Image">
                                     </div>
                                     <div class="menu-text">
-                                        <h3><span>{{ item.item_name }}</span> <strong>${{ item.item_price  }}</strong></h3>
+                                        <h3><span>{{ item.item_name }}</span> <strong>${{ item.item_price  }} </strong></h3>
                                         <p>{{ item.item_description }}</p>
                                     </div>
+                                    <div class="d-flex justify-content-end">
+          
+                                          <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm">Order</button>
+                                     </div>
                                 </div>
                                 {% endif %}
                             {% endfor %}
